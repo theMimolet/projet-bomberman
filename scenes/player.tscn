@@ -1,6 +1,6 @@
 [gd_scene load_steps=10 format=3 uid="uid://cqhpixywx35iq"]
 
-[ext_resource type="Script" path="res://scenes/Player.gd" id="1_7c3c5"]
+[ext_resource type="Script" path="res://scripts/Player.gd" id="1_twju3"]
 [ext_resource type="Texture2D" uid="uid://bkdqscsna3qeg" path="res://Asset/entities/player/cowbow-base.png" id="2_cilpy"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_myaj3"]
@@ -55,12 +55,12 @@ animations = [{
 }]
 
 [node name="Player" type="CharacterBody2D"]
-script = ExtResource("1_7c3c5")
+script = ExtResource("1_twju3")
 
 [node name="PlayerCollision" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_myaj3")
 
 [node name="PlayerSprite" type="AnimatedSprite2D" parent="."]
-scale = Vector2(0.1, 0.1)
 sprite_frames = SubResource("SpriteFrames_411cr")
 animation = &"Walk"
+speed_scale = 1.5

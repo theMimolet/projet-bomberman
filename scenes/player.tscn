@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://cqhpixywx35iq"]
+[gd_scene load_steps=10 format=3 uid="uid://d1i65tc0gvdts"]
 
 [ext_resource type="Script" path="res://scenes/Player.gd" id="1_7c3c5"]
 [ext_resource type="Texture2D" uid="uid://bkdqscsna3qeg" path="res://Asset/entities/player/cowbow-base.png" id="2_cilpy"]

@@ -27,5 +27,9 @@ func _process(delta: float) -> void:
 	
 	if xDirection or yDirection : 
 		$PlayerSprite.play("Walk")
+		if xDirection < 0 : 
+			$PlayerSprite.flip_h = true
+		else : 
+			$PlayerSprite.flip_h = false
 	else :
 		$PlayerSprite.play("Idle")

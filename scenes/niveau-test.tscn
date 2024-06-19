@@ -8,5 +8,7 @@
 position = Vector2(49, 52)
 
 [node name="Camera2D" type="Camera2D" parent="."]
-position = Vector2(49, 53)
 zoom = Vector2(14.67, 14.67)
+
+[node name="TileMap" type="TileMap" parent="."]
+format = 2

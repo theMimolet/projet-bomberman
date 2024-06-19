@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://bkdqscsna3qeg" path="res://Asset/entities/player/cowbow-base.png" id="2_cilpy"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_myaj3"]
-size = Vector2(102, 102)
+size = Vector2(12, 20)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_vmrj2"]
 atlas = ExtResource("2_cilpy")
@@ -55,12 +55,14 @@ animations = [{
 }]
 
 [node name="Player" type="CharacterBody2D"]
+z_index = 5
 script = ExtResource("1_twju3")
 
 [node name="PlayerCollision" type="CollisionShape2D" parent="."]
+position = Vector2(0, 6)
 shape = SubResource("RectangleShape2D_myaj3")
 
 [node name="PlayerSprite" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_411cr")
-animation = &"Walk"
-speed_scale = 1.5
+animation = &"Idle"
+autoplay = "Idle"

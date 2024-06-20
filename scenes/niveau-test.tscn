@@ -1,8 +1,10 @@
 [gd_scene load_steps=4 format=3 uid="uid://by23g07ao0kdf"]
 
+
 [ext_resource type="PackedScene" uid="uid://d1i65tc0gvdts" path="res://Scenes/player.tscn" id="2_jtyyb"]
 [ext_resource type="TileSet" uid="uid://bpe61rwgnfgdm" path="res://Scenes/MainTileset.tres" id="2_vvlsb"]
 [ext_resource type="PackedScene" uid="uid://b8jhbepml5a2t" path="res://Scenes/Prefab/crate.tscn" id="3_k5i37"]
+
 
 [node name="niveau" type="Node2D"]
 

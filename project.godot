@@ -11,11 +11,15 @@ config_version=5
 [application]
 
 config/name="Projet Bomberman"
-run/main_scene="res://scenes/niveau-test.tscn"
+run/main_scene="res://Scenes/menu.tscn"
 config/features=PackedStringArray("4.2", "GL Compatibility")
 boot_splash/image="res://Asset/00028-3052430003.png"
 boot_splash/fullsize=false
 config/icon="res://icon.svg"
+
+[display]
+
+window/stretch/mode="viewport"
 
 [input]
 

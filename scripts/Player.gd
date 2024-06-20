@@ -1,7 +1,7 @@
 extends CharacterBody2D
 
 @export var SPEED := 100
-
+var playStep := true
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -27,9 +27,17 @@ func _process(delta: float) -> void:
 	
 	if xDirection or yDirection : 
 		$PlayerSprite.play("Walk")
+		if playStep : 
+			$StepSFX.play()
+			$StepTimer.start()
+			playStep = false
 		if xDirection < 0 : 
 			$PlayerSprite.flip_h = true
 		else : 
 			$PlayerSprite.flip_h = false
 	else :
 		$PlayerSprite.play("Idle")
+
+
+func _on_step_timer_timeout() -> void:
+	playStep = true

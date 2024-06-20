@@ -1,7 +1,8 @@
-[gd_scene load_steps=10 format=3 uid="uid://d1i65tc0gvdts"]
+[gd_scene load_steps=11 format=3 uid="uid://cqhpixywx35iq"]
 
 [ext_resource type="Script" path="res://scripts/Player.gd" id="1_twju3"]
 [ext_resource type="Texture2D" uid="uid://bkdqscsna3qeg" path="res://Asset/entities/player/cowbow-base.png" id="2_cilpy"]
+[ext_resource type="AudioStream" uid="uid://c5fubaudshdvq" path="res://Asset/entities/player/Step.wav" id="3_iuix6"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_myaj3"]
 size = Vector2(12, 20)
@@ -64,5 +65,15 @@ shape = SubResource("RectangleShape2D_myaj3")
 
 [node name="PlayerSprite" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_411cr")
-animation = &"Idle"
-autoplay = "Idle"
+
+animation = &"Walk"
+speed_scale = 1.5
+
+[node name="StepSFX" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_iuix6")
+
+[node name="StepTimer" type="Timer" parent="."]
+wait_time = 0.3
+
+[connection signal="timeout" from="StepTimer" to="." method="_on_step_timer_timeout"]
+

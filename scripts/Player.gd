@@ -2,17 +2,23 @@ extends CharacterBody2D
 
 @export var SPEED := 100
 var playStep := true
+var placedBomb := false
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	pass # Replace with function body.
-
+	pass
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-
-	var xDirection := Input.get_axis("Left", "Right")
-	var yDirection := Input.get_axis("Up", "Down")
+	
+	if Input.is_action_just_pressed("Bombe") : 
+		var bomb = load("res://Scenes/playerBombs.tscn")
+		var instance = bomb.instantiate()
+		instance.position = self.position
+		get_tree().root.get_child(0).add_child(instance)
+	
+	var xDirection := Input.get_axis("AvanceGauche", "AvanceDroite")
+	var yDirection := Input.get_axis("AvanceHaut", "AvanceBas")
 
 	if xDirection:
 		velocity.x = xDirection * SPEED

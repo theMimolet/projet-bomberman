@@ -4,8 +4,9 @@
 [ext_resource type="Texture2D" uid="uid://bkdqscsna3qeg" path="res://Asset/entities/player/cowbow-base.png" id="2_cilpy"]
 [ext_resource type="AudioStream" uid="uid://c5fubaudshdvq" path="res://Asset/entities/player/Step.wav" id="3_iuix6"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_myaj3"]
-size = Vector2(12, 20)
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_blw12"]
+radius = 5.0
+height = 22.0
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_vmrj2"]
 atlas = ExtResource("2_cilpy")
@@ -60,8 +61,8 @@ z_index = 5
 script = ExtResource("1_twju3")
 
 [node name="PlayerCollision" type="CollisionShape2D" parent="."]
-position = Vector2(0, 6)
-shape = SubResource("RectangleShape2D_myaj3")
+position = Vector2(0, 5)
+shape = SubResource("CapsuleShape2D_blw12")
 
 [node name="PlayerSprite" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_411cr")
@@ -77,3 +78,4 @@ wait_time = 0.3
 [node name="BombTimer" type="Timer" parent="."]
 
 [connection signal="timeout" from="StepTimer" to="." method="_on_step_timer_timeout"]
+[connection signal="timeout" from="BombTimer" to="." method="_on_bomb_timer_timeout"]

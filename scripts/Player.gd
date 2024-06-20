@@ -1,6 +1,7 @@
 extends CharacterBody2D
 
 @export var SPEED := 100
+@export var HP := 3
 var playStep := true
 var placedBomb := false
 
@@ -11,11 +12,13 @@ func _ready() -> void:
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	
-	if Input.is_action_just_pressed("Bombe") : 
+	if Input.is_action_just_pressed("Bombe") and !placedBomb : 
 		var bomb = load("res://Scenes/playerBombs.tscn")
 		var instance = bomb.instantiate()
 		instance.position = self.position
 		get_tree().root.get_child(0).add_child(instance)
+		$BombTimer.start()
+		placedBomb = true
 	
 	var xDirection := Input.get_axis("AvanceGauche", "AvanceDroite")
 	var yDirection := Input.get_axis("AvanceHaut", "AvanceBas")
@@ -44,6 +47,8 @@ func _process(delta: float) -> void:
 	else :
 		$PlayerSprite.play("Idle")
 
-
 func _on_step_timer_timeout() -> void:
 	playStep = true
+
+func _on_bomb_timer_timeout() -> void:
+	placedBomb = false

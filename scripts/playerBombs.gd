@@ -6,4 +6,9 @@ func _ready() -> void:
 	$PlayerBombsSprite.play("default")
 
 func _on_player_bombs_sprite_animation_finished() -> void:
-	print("Boom")
+	var expl = load("res://Scenes/explosion.tscn")
+	var instance = expl.instantiate()
+	instance.position = self.position
+	get_tree().root.get_child(0).add_child(instance)
+	instance.explosionSpread(1, 'center')
+	queue_free()

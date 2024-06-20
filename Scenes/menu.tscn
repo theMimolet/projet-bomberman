@@ -11,6 +11,61 @@ offset_right = 1152.0
 offset_bottom = 648.0
 color = Color(0, 0, 0, 1)
 
+[node name="ParamMenu" type="HBoxContainer" parent="."]
+offset_left = 1.0
+offset_right = 1152.0
+offset_bottom = 648.0
+theme = ExtResource("2_2dpsd")
+alignment = 1
+
+[node name="CenterMenu" type="VBoxContainer" parent="ParamMenu"]
+layout_mode = 2
+size_flags_vertical = 4
+theme_override_constants/separation = 40
+alignment = 2
+
+[node name="ParamLabel" type="Label" parent="ParamMenu/CenterMenu"]
+layout_mode = 2
+text = "Parametres"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="LevelRetour" type="Button" parent="ParamMenu/CenterMenu"]
+layout_mode = 2
+text = "Retour"
+
+[node name="NiveauxMenu" type="HBoxContainer" parent="."]
+offset_left = 1.0
+offset_right = 1152.0
+offset_bottom = 648.0
+theme = ExtResource("2_2dpsd")
+alignment = 1
+
+[node name="CenterMenu" type="VBoxContainer" parent="NiveauxMenu"]
+layout_mode = 2
+size_flags_vertical = 4
+theme_override_constants/separation = 40
+alignment = 2
+
+[node name="NiveauxLabel" type="Label" parent="NiveauxMenu/CenterMenu"]
+layout_mode = 2
+text = "Niveaux"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Liste Niveaux" type="HBoxContainer" parent="NiveauxMenu/CenterMenu"]
+layout_mode = 2
+
+[node name="Level1" type="TextureButton" parent="NiveauxMenu/CenterMenu/Liste Niveaux"]
+layout_mode = 2
+
+[node name="Level2" type="TextureButton" parent="NiveauxMenu/CenterMenu/Liste Niveaux"]
+layout_mode = 2
+
+[node name="LevelRetour" type="Button" parent="NiveauxMenu/CenterMenu"]
+layout_mode = 2
+text = "Retour"
+
 [node name="MainMenu" type="HBoxContainer" parent="."]
 offset_right = 1152.0
 offset_bottom = 648.0
@@ -32,12 +87,16 @@ layout_mode = 2
 text = "Selection de niveau
 "
 
-[node name="Options" type="Button" parent="MainMenu/CenterMenu"]
+[node name="Parametres" type="Button" parent="MainMenu/CenterMenu"]
 layout_mode = 2
-text = "Options"
+text = "Parametres"
 
 [node name="Quitter" type="Button" parent="MainMenu/CenterMenu"]
 layout_mode = 2
 text = "Quitter"
 
+[connection signal="pressed" from="ParamMenu/CenterMenu/LevelRetour" to="." method="_on_level_retour_pressed"]
+[connection signal="pressed" from="NiveauxMenu/CenterMenu/LevelRetour" to="." method="_on_level_retour_pressed"]
+[connection signal="pressed" from="MainMenu/CenterMenu/Niveaux" to="." method="_on_niveaux_pressed"]
+[connection signal="pressed" from="MainMenu/CenterMenu/Parametres" to="." method="_on_parametres_pressed"]
 [connection signal="pressed" from="MainMenu/CenterMenu/Quitter" to="." method="_on_quitter_pressed"]

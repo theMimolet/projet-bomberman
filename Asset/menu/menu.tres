@@ -1,4 +1,4 @@
-[gd_resource type="Theme" load_steps=4 format=3 uid="uid://qn7tl5qk8skf"]
+[gd_resource type="Theme" load_steps=5 format=3 uid="uid://qn7tl5qk8skf"]
 
 [ext_resource type="FontFile" uid="uid://youf210se0nv" path="res://Asset/menu/slkscr.ttf" id="1_4p7t5"]
 
@@ -30,6 +30,12 @@ expand_margin_top = 10.0
 expand_margin_right = 10.0
 expand_margin_bottom = 10.0
 
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_8seh1"]
+content_margin_left = 10.0
+content_margin_top = 10.0
+content_margin_right = 10.0
+content_margin_bottom = 10.0
+
 [resource]
 default_font = ExtResource("1_4p7t5")
 Button/colors/font_hover_color = Color(0, 0, 0, 1)
@@ -37,3 +43,5 @@ Button/constants/h_separation = 8
 Button/font_sizes/font_size = 25
 Button/styles/hover = SubResource("StyleBoxFlat_cnv57")
 Button/styles/normal = SubResource("StyleBoxFlat_f0bij")
+Label/font_sizes/font_size = 40
+Label/styles/normal = SubResource("StyleBoxEmpty_8seh1")

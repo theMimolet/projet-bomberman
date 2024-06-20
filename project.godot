@@ -17,6 +17,10 @@ boot_splash/image="res://Asset/00028-3052430003.png"
 boot_splash/fullsize=false
 config/icon="res://icon.svg"
 
+[display]
+
+window/stretch/mode="viewport"
+
 [input]
 
 Left={

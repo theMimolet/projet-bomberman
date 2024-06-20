@@ -1,10 +1,16 @@
-[gd_scene load_steps=5 format=3 uid="uid://bge7qat5yefi6"]
+[gd_scene load_steps=6 format=3 uid="uid://bge7qat5yefi6"]
 
 [ext_resource type="Script" path="res://scripts/menu.gd" id="1_gpi74"]
 [ext_resource type="Theme" uid="uid://qn7tl5qk8skf" path="res://Asset/menu/menu.tres" id="2_2dpsd"]
-[ext_resource type="Texture2D" uid="uid://wcj2mct6tle4" path="res://Asset/menu/placeholder.jpg" id="3_oyvr6"]
+[ext_resource type="Texture2D" uid="uid://cjhkiag3orx7g" path="res://Asset/menu/Jim.png" id="3_wsucb"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_0vulx"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_wvlha"]
+line_spacing = 0.0
+font_size = 20
+shadow_size = 5
+shadow_color = Color(1, 1, 1, 0.211765)
 
 [node name="Menu" type="Node2D"]
 script = ExtResource("1_gpi74")
@@ -43,6 +49,7 @@ layout_mode = 2
 text = "Retour"
 
 [node name="NiveauxMenu" type="HBoxContainer" parent="."]
+visible = false
 offset_right = 1151.0
 offset_bottom = 648.0
 size_flags_horizontal = 4
@@ -91,9 +98,9 @@ text = "Retour"
 icon_alignment = 1
 
 [node name="MainMenu" type="HBoxContainer" parent="."]
-visible = false
+offset_top = 9.0
 offset_right = 1152.0
-offset_bottom = 648.0
+offset_bottom = 657.0
 theme = ExtResource("2_2dpsd")
 alignment = 1
 
@@ -103,10 +110,21 @@ size_flags_vertical = 4
 theme_override_constants/separation = 40
 alignment = 2
 
-[node name="TextureRect" type="TextureRect" parent="MainMenu/CenterMenu"]
+[node name="VBoxContainer" type="VBoxContainer" parent="MainMenu/CenterMenu"]
 layout_mode = 2
-texture = ExtResource("3_oyvr6")
+alignment = 1
+
+[node name="Logo" type="TextureRect" parent="MainMenu/CenterMenu/VBoxContainer"]
+layout_mode = 2
+texture = ExtResource("3_wsucb")
 expand_mode = 5
+
+[node name="SousTitre" type="Label" parent="MainMenu/CenterMenu/VBoxContainer"]
+layout_mode = 2
+text = "Le dernier cyber-cowboy"
+label_settings = SubResource("LabelSettings_wvlha")
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="Nouveau jeu" type="Button" parent="MainMenu/CenterMenu"]
 layout_mode = 2
@@ -124,6 +142,10 @@ text = "Parametres"
 [node name="Quitter" type="Button" parent="MainMenu/CenterMenu"]
 layout_mode = 2
 text = "Quitter"
+
+[node name="HSeparator2" type="HSeparator" parent="MainMenu/CenterMenu"]
+layout_mode = 2
+theme_override_styles/separator = SubResource("StyleBoxEmpty_0vulx")
 
 [connection signal="pressed" from="ParamMenu/CenterMenu/Fullscreen" to="." method="_on_fullscreen_pressed"]
 [connection signal="pressed" from="ParamMenu/CenterMenu/LevelRetour" to="." method="_on_level_retour_pressed"]

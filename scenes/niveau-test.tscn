@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://by23g07ao0kdf"]
+[gd_scene load_steps=4 format=3 uid="uid://by23g07ao0kdf"]
 
 [ext_resource type="PackedScene" uid="uid://d1i65tc0gvdts" path="res://Scenes/player.tscn" id="2_jtyyb"]
 [ext_resource type="TileSet" uid="uid://bpe61rwgnfgdm" path="res://Scenes/MainTileset.tres" id="2_vvlsb"]
+[ext_resource type="PackedScene" uid="uid://b8jhbepml5a2t" path="res://Scenes/Prefab/crate.tscn" id="3_k5i37"]
 
 [node name="niveau" type="Node2D"]
 
@@ -14,7 +15,7 @@ tile_set = ExtResource("2_vvlsb")
 format = 2
 layer_0/name = "WallDecoration"
 layer_0/z_index = 2
-layer_0/tile_data = PackedInt32Array(-65536, 1376257, 0, -65535, 1376257, 0, -1, 1245185, 0, -65534, 1441793, 0)
+layer_0/tile_data = PackedInt32Array(-65536, 1376257, 0, -65535, 1376257, 0, -1, 1245185, 0, -65534, 1441793, 0, 327687, 0, 65536, 196614, 0, 65536)
 layer_1/name = "Walls"
 layer_1/z_index = 1
 layer_1/tile_data = PackedInt32Array(-65536, 327681, 0, -65535, 327681, 0, -65534, 327681, 0, -65533, 327681, 0, -65532, 393217, 0, 4, 589825, 2, 65540, 589825, 2, -2, 262145, 0, -1, 327681, 0, 65534, 65537, 2, 131070, 65537, 2, 196606, 262145, 2, 131076, 393217, 1)
@@ -22,3 +23,5 @@ layer_2/name = "Ground"
 layer_2/tile_data = PackedInt32Array(65536, 2228225, 1, 65537, 2359297, 1, 131073, 2228225, 1, 131074, 2228225, 1, 131072, 2228225, 1, 0, 2228225, 1, 1, 2228225, 1, 2, 2228225, 1, 65534, 2228225, 1, 131070, 2228225, 1, 196606, 2228225, 1, 65535, 2228225, 1, 131071, 2228225, 1, 196607, 2228225, 1, 3, 2228225, 1, 65539, 2228225, 1, 131075, 2228225, 1, 4, 2228225, 1, 65540, 2228225, 1, 131076, 2228225, 1, -2, 2228225, 1, -1, 2228225, 1, -65536, 2228225, 1, -65535, 2228225, 1, -65534, 2228225, 1, -65533, 2228225, 1, -65532, 2228225, 1, 65538, 2228225, 1)
 
 [node name="Player" parent="." instance=ExtResource("2_jtyyb")]
+
+[node name="Crate" parent="." instance=ExtResource("3_k5i37")]

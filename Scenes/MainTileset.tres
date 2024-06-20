@@ -1,7 +1,12 @@
-[gd_resource type="TileSet" load_steps=76 format=3 uid="uid://bpe61rwgnfgdm"]
+[gd_resource type="TileSet" load_steps=78 format=3 uid="uid://bpe61rwgnfgdm"]
 
+[ext_resource type="PackedScene" uid="uid://b8jhbepml5a2t" path="res://Scenes/Prefab/crate.tscn" id="1_1cif7"]
 [ext_resource type="Texture2D" uid="uid://dxyv1kyfh5vjy" path="res://Asset/Tech Dungeon Roguelite - Asset Pack (v7)/tileset x1.png" id="1_6qggi"]
 [ext_resource type="Texture2D" uid="uid://cqng78fekn7gq" path="res://Asset/Tech Dungeon Roguelite - Asset Pack (v7)/Props and Items/props and items x1.png" id="2_hc6vw"]
+
+[sub_resource type="TileSetScenesCollectionSource" id="TileSetScenesCollectionSource_wwj3k"]
+resource_name = "Crate"
+scenes/1/scene = ExtResource("1_1cif7")
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_08l4n"]
 vertices = PackedVector2Array(16, 16, -16, 16, -16, -16, 16, -16)
@@ -1558,3 +1563,4 @@ physics_layer_0/collision_layer = 1
 navigation_layer_0/layers = 1
 sources/1 = SubResource("TileSetAtlasSource_kcgv8")
 sources/2 = SubResource("TileSetAtlasSource_3p7ww")
+sources/0 = SubResource("TileSetScenesCollectionSource_wwj3k")

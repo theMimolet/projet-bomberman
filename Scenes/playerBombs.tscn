@@ -1,6 +1,6 @@
 [gd_scene load_steps=10 format=3 uid="uid://bv8awrts4cbe2"]
 
-[ext_resource type="Script" path="res://Scenes/playerBombs.gd" id="1_l52iq"]
+[ext_resource type="Script" path="res://scripts/playerBombs.gd" id="1_l52iq"]
 [ext_resource type="Texture2D" uid="uid://dhnh05ughnt55" path="res://Asset/entities/bomb/bombe.png" id="1_rj70w"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_y0i88"]

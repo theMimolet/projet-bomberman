@@ -1,6 +1,6 @@
 extends CharacterBody2D
 
-@export var SPEED := 100
+@export var SPEED := 120
 @export var HP := 3
 var playStep := true
 var placedBomb := false

@@ -61,14 +61,16 @@ animations = [{
 }]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_vlkro"]
-radius = 16.0
+radius = 15.0
 
 [node name="Explosion" type="Node2D"]
 script = ExtResource("1_2mvwe")
 
 [node name="ExplosionSprite" type="AnimatedSprite2D" parent="."]
+position = Vector2(-8.34465e-07, -4.76837e-07)
 sprite_frames = SubResource("SpriteFrames_fqf4c")
-frame_progress = 0.234887
+frame = 6
+frame_progress = 1.0
 speed_scale = 1.5
 
 [node name="ExplosionArea" type="Area2D" parent="."]

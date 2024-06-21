@@ -1,8 +1,14 @@
-[gd_resource type="TileSet" load_steps=78 format=3 uid="uid://bpe61rwgnfgdm"]
+[gd_resource type="TileSet" load_steps=80 format=3 uid="uid://bpe61rwgnfgdm"]
 
 [ext_resource type="PackedScene" uid="uid://b8jhbepml5a2t" path="res://Scenes/Prefab/crate.tscn" id="1_1cif7"]
 [ext_resource type="Texture2D" uid="uid://dxyv1kyfh5vjy" path="res://Asset/Tech Dungeon Roguelite - Asset Pack (v7)/tileset x1.png" id="1_6qggi"]
 [ext_resource type="Texture2D" uid="uid://cqng78fekn7gq" path="res://Asset/Tech Dungeon Roguelite - Asset Pack (v7)/Props and Items/props and items x1.png" id="2_hc6vw"]
+
+[sub_resource type="TileMapPattern" id="TileMapPattern_62c2n"]
+tile_data = PackedInt32Array(0, 262145, 9, 65536, 65537, 3)
+
+[sub_resource type="TileMapPattern" id="TileMapPattern_bmc4m"]
+tile_data = PackedInt32Array(65536, 851969, 1, 1, 196609, 9, 65537, 917505, 1, 131073, 65537, 3)
 
 [sub_resource type="TileSetScenesCollectionSource" id="TileSetScenesCollectionSource_wwj3k"]
 resource_name = "Crate"
@@ -606,7 +612,7 @@ texture_region_size = Vector2i(32, 32)
 1:4/0/occlusion_layer_0/polygon = SubResource("OccluderPolygon2D_yh22m")
 1:4/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 1:4/0/physics_layer_0/angular_velocity = 0.0
-1:4/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, 0, -16, 0, -16, 16, -8, 16)
+1:4/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -16, -8, -16, -8, 16, -16, 16)
 1:4/0/terrains_peering_bit/bottom_side = 0
 1:4/0/navigation_layer_0/polygon = SubResource("NavigationPolygon_fjer1")
 9:4/0 = 0
@@ -788,7 +794,7 @@ texture_region_size = Vector2i(32, 32)
 3:9/0/occlusion_layer_0/polygon = SubResource("OccluderPolygon2D_qenem")
 3:9/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 3:9/0/physics_layer_0/angular_velocity = 0.0
-3:9/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, 0, -16, 0, -16, 16, -8, 16)
+3:9/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -16, -8, -16, -8, 16, -16, 16)
 3:9/0/navigation_layer_0/polygon = SubResource("NavigationPolygon_we4fu")
 4:9/0 = 0
 4:9/0/occlusion_layer_0/polygon = SubResource("OccluderPolygon2D_b7qjp")
@@ -806,7 +812,7 @@ texture_region_size = Vector2i(32, 32)
 7:9/0/occlusion_layer_0/polygon = SubResource("OccluderPolygon2D_0yu1a")
 7:9/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 7:9/0/physics_layer_0/angular_velocity = 0.0
-7:9/0/physics_layer_0/polygon_0/points = PackedVector2Array(8, 0, 16, 0, 16, 16, 8, 16)
+7:9/0/physics_layer_0/polygon_0/points = PackedVector2Array(16, 16, 8, 16, 8, -16, 16, -16)
 8:9/0 = 0
 8:9/0/occlusion_layer_0/polygon = SubResource("OccluderPolygon2D_0yu1a")
 8:9/0/physics_layer_0/linear_velocity = Vector2(0, 0)
@@ -1649,3 +1655,5 @@ navigation_layer_0/layers = 1
 sources/1 = SubResource("TileSetAtlasSource_kcgv8")
 sources/2 = SubResource("TileSetAtlasSource_3p7ww")
 sources/0 = SubResource("TileSetScenesCollectionSource_wwj3k")
+pattern_0 = SubResource("TileMapPattern_62c2n")
+pattern_1 = SubResource("TileMapPattern_bmc4m")

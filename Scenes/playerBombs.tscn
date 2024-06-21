@@ -1,45 +1,59 @@
-[gd_scene load_steps=10 format=3 uid="uid://bv8awrts4cbe2"]
+[gd_scene load_steps=12 format=3 uid="uid://bv8awrts4cbe2"]
 
 [ext_resource type="Script" path="res://scripts/playerBombs.gd" id="1_l52iq"]
-[ext_resource type="Texture2D" uid="uid://dhnh05ughnt55" path="res://Asset/entities/bomb/bombe.png" id="1_rj70w"]
+[ext_resource type="Texture2D" uid="uid://5xel1as7urk4" path="res://Asset/entities/bomb/HoloBomb.png" id="2_1l0hm"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_y0i88"]
-atlas = ExtResource("1_rj70w")
+[sub_resource type="AtlasTexture" id="AtlasTexture_fb7tm"]
+atlas = ExtResource("2_1l0hm")
 region = Rect2(0, 0, 32, 32)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_twhj8"]
-atlas = ExtResource("1_rj70w")
+[sub_resource type="AtlasTexture" id="AtlasTexture_3o0vg"]
+atlas = ExtResource("2_1l0hm")
 region = Rect2(32, 0, 32, 32)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_on8sp"]
-atlas = ExtResource("1_rj70w")
+[sub_resource type="AtlasTexture" id="AtlasTexture_e0yy5"]
+atlas = ExtResource("2_1l0hm")
 region = Rect2(64, 0, 32, 32)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_qla4w"]
-atlas = ExtResource("1_rj70w")
+[sub_resource type="AtlasTexture" id="AtlasTexture_cf88u"]
+atlas = ExtResource("2_1l0hm")
 region = Rect2(96, 0, 32, 32)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_hyy7n"]
-atlas = ExtResource("1_rj70w")
+[sub_resource type="AtlasTexture" id="AtlasTexture_e8wbx"]
+atlas = ExtResource("2_1l0hm")
 region = Rect2(128, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_oein6"]
+atlas = ExtResource("2_1l0hm")
+region = Rect2(160, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mqxa0"]
+atlas = ExtResource("2_1l0hm")
+region = Rect2(192, 0, 32, 32)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_nujij"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_y0i88")
+"texture": SubResource("AtlasTexture_fb7tm")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_twhj8")
+"texture": SubResource("AtlasTexture_3o0vg")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_on8sp")
+"texture": SubResource("AtlasTexture_e0yy5")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_qla4w")
+"texture": SubResource("AtlasTexture_cf88u")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_hyy7n")
+"texture": SubResource("AtlasTexture_e8wbx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_oein6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mqxa0")
 }],
 "loop": false,
 "name": &"default",
@@ -54,7 +68,7 @@ collision_mask = 2
 script = ExtResource("1_l52iq")
 
 [node name="PlayerBombsSprite" type="AnimatedSprite2D" parent="."]
-position = Vector2(0, -6)
+position = Vector2(-1, 0)
 sprite_frames = SubResource("SpriteFrames_nujij")
 frame_progress = 0.933695
 

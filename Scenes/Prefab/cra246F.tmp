@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://b8jhbepml5a2t"]
+[gd_scene load_steps=5 format=3 uid="uid://b8jhbepml5a2t"]
 
 [ext_resource type="Script" path="res://scripts/crate.gd" id="1_n5aot"]
 [ext_resource type="Texture2D" uid="uid://qgqg6yeab5f7" path="res://Asset/Props/Crate.png" id="1_nxofj"]
@@ -8,11 +8,6 @@ size = Vector2(28, 28)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_helqd"]
 size = Vector2(28, 21)
-
-[sub_resource type="Curve" id="Curve_r5kn0"]
-min_value = -1.0
-_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
-point_count = 2
 
 [node name="Crate" type="StaticBody2D"]
 script = ExtResource("1_n5aot")
@@ -29,26 +24,5 @@ debug_color = Color(0.57695, 0.552339, 0.0782293, 0.42)
 [node name="CrateCollision" type="CollisionShape2D" parent="."]
 position = Vector2(0, -3.5)
 shape = SubResource("RectangleShape2D_helqd")
-
-[node name="CrateSelfDestructTimer" type="Timer" parent="."]
-wait_time = 0.5
-
-[node name="CPUParticles2D" type="CPUParticles2D" parent="."]
-emitting = false
-amount = 40
-one_shot = true
-explosiveness = 1.0
-randomness = 0.5
-lifetime_randomness = 1.0
-spread = 180.0
-gravity = Vector2(0, 0)
-initial_velocity_min = 40.0
-initial_velocity_max = 50.0
-scale_amount_min = 1.5
-scale_amount_max = 2.0
-color = Color(0.576471, 0.435294, 0.105882, 1)
-hue_variation_min = -0.13
-hue_variation_max = 0.13
-hue_variation_curve = SubResource("Curve_r5kn0")
 
 [connection signal="area_entered" from="CrateArea" to="." method="_on_crate_area_area_entered"]

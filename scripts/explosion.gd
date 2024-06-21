@@ -2,6 +2,7 @@ extends Node2D
 
 @export var maxExplosions = 3
 @export var spacingExplosions = 32
+var onCrate := false
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -14,11 +15,15 @@ func explosionSpread(number : int, currentState : String):
 			var states = ['right', 'left', 'up', 'down']
 			$ExplosionTimer.start()
 			await($ExplosionTimer.timeout)
+			if onCrate : 
+				maxExplosions = number
 			for i in states :
 				newExplosion(number+1, i)
 		else : 
 			$ExplosionTimer.start()
 			await($ExplosionTimer.timeout)
+			if onCrate : 
+				maxExplosions = number
 			newExplosion(number+1, currentState)
 	
 
@@ -45,5 +50,7 @@ func _on_explosion_sprite_animation_finished() -> void:
 	queue_free()
 
 func _on_explosion_area_body_entered(body: Node2D) -> void:
-	if body.name == "TileMap" : 
+	if body.has_method("isCrate") :
+		onCrate = true
+	if body.name == "TileMap" :
 		queue_free()

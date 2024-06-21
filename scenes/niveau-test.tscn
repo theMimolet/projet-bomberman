@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://by23g07ao0kdf"]
+[gd_scene load_steps=9 format=3 uid="uid://by23g07ao0kdf"]
 
 [ext_resource type="Script" path="res://Scenes/level-gameplay.gd" id="1_245gm"]
 [ext_resource type="Script" path="res://Scenes/nextScene.gd" id="2_aioh4"]
@@ -7,11 +7,20 @@
 [ext_resource type="PackedScene" uid="uid://b6dlwb1oantft" path="res://Scenes/Prefab/base_enemy.tscn" id="4_o54y5"]
 [ext_resource type="Theme" uid="uid://qn7tl5qk8skf" path="res://Asset/menu/menu.tres" id="6_bukh0"]
 
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_qmg0l"]
+outlines = Array[PackedVector2Array]([PackedVector2Array(-288, -163, 282, -157, 284, 159, -279, 159)])
+parsed_collision_mask = 4294967041
+source_geometry_group_name = &"navigation_polygon_source_group"
+
 [sub_resource type="LabelSettings" id="LabelSettings_gsn00"]
 shadow_color = Color(1, 1, 1, 0.145098)
 
 [node name="niveau" type="Node2D"]
 script = ExtResource("1_245gm")
+
+[node name="tickScene" type="Timer" parent="."]
+wait_time = 0.5
+autostart = true
 
 [node name="nextScene" type="Node2D" parent="."]
 script = ExtResource("2_aioh4")
@@ -29,7 +38,11 @@ layer_1/tile_data = PackedInt32Array(-65536, 327681, 0, -65535, 327681, 0, -6553
 layer_2/name = "Ground"
 layer_2/tile_data = PackedInt32Array(65536, 2228225, 1, 65537, 2359297, 1, 131073, 2228225, 1, 131074, 2228225, 1, 131072, 2228225, 1, 0, 2228225, 1, 1, 2228225, 1, 2, 2228225, 1, 65534, 2228225, 1, 131070, 2228225, 1, 196606, 2228225, 1, 65535, 2228225, 1, 131071, 2228225, 1, 196607, 2228225, 1, 3, 2228225, 1, 65539, 2228225, 1, 131075, 2228225, 1, 4, 2228225, 1, 65540, 2228225, 1, 131076, 2228225, 1, -2, 2228225, 1, -1, 2228225, 1, -65536, 2228225, 1, -65535, 2228225, 1, -65534, 2228225, 1, -65533, 2228225, 1, -65532, 2228225, 1, 65538, 2228225, 1)
 
+[node name="NavigationRegion2D" type="NavigationRegion2D" parent="."]
+navigation_polygon = SubResource("NavigationPolygon_qmg0l")
+
 [node name="BaseEnemy" parent="." instance=ExtResource("4_o54y5")]
+position = Vector2(198, -67)
 
 [node name="Player" parent="." instance=ExtResource("2_jtyyb")]
 position = Vector2(-16, 20)
@@ -89,3 +102,5 @@ offset_bottom = 36.0
 theme_override_font_sizes/font_size = 15
 text = "Enemy count"
 label_settings = SubResource("LabelSettings_gsn00")
+
+[connection signal="timeout" from="tickScene" to="." method="_on_tick_scene_timeout"]

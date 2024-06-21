@@ -1,15 +1,15 @@
 extends Node2D
 
 var stateMenu := 1
-const niveau1 := "res://Scenes/niveau-test.tscn"
-const niveau2 := "res://Scenes/niveau-test.tscn"
+const niveau1 := "res://Scenes/niveau1.tscn"
+const niveau2 := "res://Scenes/niveau2.tscn"
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	if DisplayServer.window_get_mode() == 0 : 
-		$ParamMenu/CenterMenu/Fullscreen.text = "Plein ecran : Off"
+		$MainMenu/CenterMenu/Fullscreen.text = "Plein ecran : Off"
 	else : 
-		$ParamMenu/CenterMenu/Fullscreen.text = "Plein ecran : On"
+		$MainMenu/CenterMenu/Fullscreen.text = "Plein ecran : On"
 		
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
@@ -46,10 +46,10 @@ func _on_level_retour_pressed() -> void:
 func _on_fullscreen_pressed() -> void:
 	if DisplayServer.window_get_mode() == 0 : 
 		DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_FULLSCREEN)
-		$ParamMenu/CenterMenu/Fullscreen.text = "Plein ecran : On"
+		$MainMenu/CenterMenu/Fullscreen.text = "Plein ecran : On"
 	else : 
 		DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_WINDOWED)
-		$ParamMenu/CenterMenu/Fullscreen.text = "Plein ecran : Off"
+		$MainMenu/CenterMenu/Fullscreen.text = "Plein ecran : Off"
 
 func _on_niveau_1_pressed() -> void:
 	get_tree().change_scene_to_file(niveau1)

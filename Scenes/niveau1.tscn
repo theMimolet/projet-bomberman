@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://bmybsx174rtx6"]
+
+[ext_resource type="PackedScene" uid="uid://by23g07ao0kdf" path="res://Scenes/niveau-test.tscn" id="1_w3clk"]
+
+[node name="niveau" instance=ExtResource("1_w3clk")]
+
+[node name="TileMap" parent="." index="1"]
+layer_0/tile_data = PackedInt32Array()
+layer_1/tile_data = PackedInt32Array()
+layer_2/tile_data = PackedInt32Array()

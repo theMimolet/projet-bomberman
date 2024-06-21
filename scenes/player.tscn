@@ -61,12 +61,17 @@ z_index = 5
 script = ExtResource("1_twju3")
 
 [node name="PlayerCollision" type="CollisionShape2D" parent="."]
-position = Vector2(0, 5)
+position = Vector2(0, -1)
 shape = SubResource("CapsuleShape2D_blw12")
 
-[node name="PlayerSprite" type="AnimatedSprite2D" parent="."]
+[node name="Visual" type="Node2D" parent="."]
+
+[node name="PlayerSprite" type="AnimatedSprite2D" parent="Visual"]
+position = Vector2(0, -7)
 sprite_frames = SubResource("SpriteFrames_411cr")
 animation = &"Walk"
+frame = 3
+frame_progress = 0.36526
 speed_scale = 1.5
 
 [node name="StepSFX" type="AudioStreamPlayer" parent="."]
@@ -75,7 +80,10 @@ stream = ExtResource("3_iuix6")
 [node name="StepTimer" type="Timer" parent="."]
 wait_time = 0.3
 
+[node name="LassoTimer" type="Timer" parent="."]
+
 [node name="BombTimer" type="Timer" parent="."]
 
 [connection signal="timeout" from="StepTimer" to="." method="_on_step_timer_timeout"]
+[connection signal="timeout" from="LassoTimer" to="." method="_on_lasso_timer_timeout"]
 [connection signal="timeout" from="BombTimer" to="." method="_on_bomb_timer_timeout"]

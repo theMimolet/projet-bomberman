@@ -1,8 +1,7 @@
 extends Node2D
 
-var maxExplosions = 4
-var explNumber : int
-var explState : String
+@export var maxExplosions = 3
+@export var spacingExplosions = 32
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -13,9 +12,13 @@ func explosionSpread(number : int, currentState : String):
 	if number < maxExplosions : 
 		if currentState == 'center' : 
 			var states = ['right', 'left', 'up', 'down']
+			$ExplosionTimer.start()
+			await($ExplosionTimer.timeout)
 			for i in states :
 				newExplosion(number+1, i)
 		else : 
+			$ExplosionTimer.start()
+			await($ExplosionTimer.timeout)
 			newExplosion(number+1, currentState)
 	
 
@@ -24,13 +27,13 @@ func newExplosion(number, toWhere):
 	var instance = expl.instantiate()
 	match toWhere : 
 		'right': 
-			instance.position = Vector2(self.position.x+32, self.position.y)
+			instance.position = Vector2(self.position.x+spacingExplosions, self.position.y)
 		'left': 
-			instance.position = Vector2(self.position.x-32, self.position.y)
+			instance.position = Vector2(self.position.x-spacingExplosions, self.position.y)
 		'up': 
-			instance.position = Vector2(self.position.x, self.position.y-32)
+			instance.position = Vector2(self.position.x, self.position.y-spacingExplosions)
 		'down': 
-			instance.position = Vector2(self.position.x, self.position.y+32)
+			instance.position = Vector2(self.position.x, self.position.y+spacingExplosions)
 	get_tree().root.get_child(0).add_child(instance)
 	instance.explosionSpread(number, toWhere)
 

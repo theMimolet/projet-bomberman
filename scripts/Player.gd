@@ -4,6 +4,7 @@ extends CharacterBody2D
 @export var HP := 3
 var playStep := true
 var placedBomb := false
+var lassoing := false
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -19,6 +20,17 @@ func _process(delta: float) -> void:
 		get_tree().root.get_child(0).add_child(instance)
 		$BombTimer.start()
 		placedBomb = true
+
+	if !lassoing:
+		if Input.is_action_just_pressed("LassoBas") : 
+			lasso('down')
+		if Input.is_action_just_pressed("LassoHaut") : 
+			lasso('up')
+		if Input.is_action_just_pressed("LassoGauche") : 
+			lasso('left')
+		if Input.is_action_just_pressed("LassoDroite") : 
+			lasso('right')
+		
 	
 	var xDirection := Input.get_axis("AvanceGauche", "AvanceDroite")
 	var yDirection := Input.get_axis("AvanceHaut", "AvanceBas")
@@ -35,20 +47,32 @@ func _process(delta: float) -> void:
 	move_and_slide()
 	
 	if xDirection or yDirection : 
-		$PlayerSprite.play("Walk")
+		$Visual/PlayerSprite.play("Walk")
 		if playStep : 
 			$StepSFX.play()
 			$StepTimer.start()
 			playStep = false
 		if xDirection < 0 : 
-			$PlayerSprite.flip_h = true
+			$Visual.scale.x = -1
 		else : 
-			$PlayerSprite.flip_h = false
+			$Visual.scale.x = 1
 	else :
-		$PlayerSprite.play("Idle")
+		$Visual/PlayerSprite.play("Idle")
+
+func lasso(direction : String):
+	var lasso = load("res://Scenes/playerLassos.tscn")
+	var instance = lasso.instantiate()
+	instance.position = self.position
+	get_tree().root.get_child(0).add_child(instance)
+	instance.lassoSpread(1, direction)
+	$LassoTimer.start()
+	lassoing = true
 
 func _on_step_timer_timeout() -> void:
 	playStep = true
 
 func _on_bomb_timer_timeout() -> void:
 	placedBomb = false
+
+func _on_lasso_timer_timeout() -> void:
+	lassoing = false

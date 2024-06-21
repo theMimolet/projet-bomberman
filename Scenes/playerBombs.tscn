@@ -49,9 +49,12 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_piofo"]
 
 [node name="PlayerBombs" type="AnimatableBody2D"]
+collision_layer = 2
+collision_mask = 2
 script = ExtResource("1_l52iq")
 
 [node name="PlayerBombsSprite" type="AnimatedSprite2D" parent="."]
+position = Vector2(0, -6)
 sprite_frames = SubResource("SpriteFrames_nujij")
 frame_progress = 0.933695
 

@@ -1,0 +1,63 @@
+[gd_scene load_steps=5 format=3 uid="uid://cuhno68yx0hdi"]
+
+[ext_resource type="Script" path="res://scripts/playerLassos.gd" id="1_1slee"]
+[ext_resource type="Texture2D" uid="uid://bk4hx8teuapkf" path="res://Asset/entities/lasso/lassoHorizontalSmolTest.png" id="2_vls07"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_fqf4c"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_vls07")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_gryqn"]
+size = Vector2(16, 3)
+
+[node name="Lasso" type="Node2D"]
+script = ExtResource("1_1slee")
+
+[node name="LassoSprite" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_fqf4c")
+speed_scale = 0.5
+
+[node name="LassoArea" type="Area2D" parent="."]
+
+[node name="LassoAreaShape" type="CollisionShape2D" parent="LassoArea"]
+shape = SubResource("RectangleShape2D_gryqn")
+
+[node name="LassoTimer" type="Timer" parent="."]
+wait_time = 0.1
+
+[node name="LassoSelfDestructTimer" type="Timer" parent="."]
+wait_time = 0.05
+
+[node name="LassoParticules" type="CPUParticles2D" parent="."]
+rotation = 3.14159
+emitting = false
+amount = 25
+lifetime = 0.5
+one_shot = true
+explosiveness = 1.0
+randomness = 1.0
+lifetime_randomness = 1.0
+emission_shape = 1
+emission_sphere_radius = 1.0
+direction = Vector2(0, 0)
+spread = 180.0
+gravity = Vector2(10, 10)
+initial_velocity_min = 50.0
+initial_velocity_max = 75.0
+color = Color(0.356863, 1, 1, 1)
+
+[node name="LassoParticulesPosRight" type="Marker2D" parent="."]
+position = Vector2(8, 0)
+
+[node name="LassoParticulesPosLeft" type="Marker2D" parent="."]
+position = Vector2(-8, 0)
+
+[connection signal="animation_finished" from="LassoSprite" to="." method="_on_explosion_sprite_animation_finished"]
+[connection signal="body_entered" from="LassoArea" to="." method="_on_explosion_area_body_entered"]

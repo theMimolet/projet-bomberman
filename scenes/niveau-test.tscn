@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://by23g07ao0kdf"]
+[gd_scene load_steps=5 format=3 uid="uid://by23g07ao0kdf"]
 
 [ext_resource type="Script" path="res://Scenes/level-gameplay.gd" id="1_245gm"]
 [ext_resource type="PackedScene" uid="uid://cqhpixywx35iq" path="res://Scenes/player.tscn" id="2_jtyyb"]
 [ext_resource type="TileSet" uid="uid://bpe61rwgnfgdm" path="res://Scenes/MainTileset.tres" id="2_vvlsb"]
+[ext_resource type="PackedScene" uid="uid://b6dlwb1oantft" path="res://Scenes/Prefab/base_enemy.tscn" id="4_o54y5"]
 
 [node name="niveau" type="Node2D"]
 script = ExtResource("1_245gm")
@@ -26,3 +27,5 @@ layer_2/tile_data = PackedInt32Array(65536, 2228225, 1, 65537, 2359297, 1, 13107
 [node name="Player" parent="." instance=ExtResource("2_jtyyb")]
 position = Vector2(-16, 20)
 scale = Vector2(1.5, 1.5)
+
+[node name="BaseEnemy" parent="." instance=ExtResource("4_o54y5")]

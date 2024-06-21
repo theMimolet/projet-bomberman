@@ -58,19 +58,22 @@ func _process(delta: float) -> void:
 		else :
 			$Visual/PlayerSprite.play("Idle")
 	else : 
-		pass
-		#$Visual/PlayerSprite.play("Lasso")
+		$Visual/PlayerSprite.play("Lasso")
 
 func lasso(direction : String):
+	match direction : 
+		'left' : 
+			$Visual.scale.x = -1
+		'right' :
+			$Visual.scale.x = 1
 	lassoing = true
-	$Visual/PlayerSprite.stop()
 	var lasso = load("res://Scenes/playerLassos.tscn")
 	var instance = lasso.instantiate()
 	instance.position = self.position
 	get_tree().root.get_child(0).add_child(instance)
 	instance.lassoSpread(1, direction)
 	$LassoTimer.start()
-	$Visual/PlayerSprite.play("Lasso")
+	
 	
 func _on_step_timer_timeout() -> void:
 	playStep = true

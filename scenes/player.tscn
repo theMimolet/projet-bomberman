@@ -104,7 +104,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_jolc4")
 }],
-"loop": false,
+"loop": true,
 "name": &"Idle",
 "speed": 5.0
 }, {
@@ -138,7 +138,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_iajhk")
 }],
-"loop": false,
+"loop": true,
 "name": &"Walk",
 "speed": 5.0
 }]
@@ -156,7 +156,7 @@ shape = SubResource("CapsuleShape2D_blw12")
 [node name="PlayerSprite" type="AnimatedSprite2D" parent="Visual"]
 position = Vector2(0, -7)
 sprite_frames = SubResource("SpriteFrames_411cr")
-animation = &"Walk"
+animation = &"Idle"
 speed_scale = 1.5
 
 [node name="StepSFX" type="AudioStreamPlayer" parent="."]
@@ -166,7 +166,6 @@ stream = ExtResource("3_iuix6")
 wait_time = 0.3
 
 [node name="LassoTimer" type="Timer" parent="."]
-wait_time = 0.5
 
 [node name="BombTimer" type="Timer" parent="."]
 

@@ -40,9 +40,9 @@ text = "Parametres"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Fullscreen" type="Button" parent="ParamMenu/CenterMenu"]
+[node name="Parametres" type="Button" parent="ParamMenu/CenterMenu"]
 layout_mode = 2
-text = "Plein ecran"
+text = "Parametres"
 
 [node name="LevelRetour" type="Button" parent="ParamMenu/CenterMenu"]
 layout_mode = 2
@@ -135,9 +135,9 @@ layout_mode = 2
 text = "Selection de niveau
 "
 
-[node name="Parametres" type="Button" parent="MainMenu/CenterMenu"]
+[node name="Fullscreen" type="Button" parent="MainMenu/CenterMenu"]
 layout_mode = 2
-text = "Parametres"
+text = "Plein ecran"
 
 [node name="Quitter" type="Button" parent="MainMenu/CenterMenu"]
 layout_mode = 2
@@ -147,12 +147,12 @@ text = "Quitter"
 layout_mode = 2
 theme_override_styles/separator = SubResource("StyleBoxEmpty_0vulx")
 
-[connection signal="pressed" from="ParamMenu/CenterMenu/Fullscreen" to="." method="_on_fullscreen_pressed"]
+[connection signal="pressed" from="ParamMenu/CenterMenu/Parametres" to="." method="_on_parametres_pressed"]
 [connection signal="pressed" from="ParamMenu/CenterMenu/LevelRetour" to="." method="_on_level_retour_pressed"]
 [connection signal="pressed" from="NiveauxMenu/CenterMenu/Liste Niveaux/Niveau1" to="." method="_on_niveau_1_pressed"]
 [connection signal="pressed" from="NiveauxMenu/CenterMenu/Liste Niveaux/Niveau2" to="." method="_on_niveau_2_pressed"]
 [connection signal="pressed" from="NiveauxMenu/CenterMenu/BoxContainer/LevelRetour" to="." method="_on_level_retour_pressed"]
 [connection signal="pressed" from="MainMenu/CenterMenu/Nouveau jeu" to="." method="_on_nouveau_jeu_pressed"]
 [connection signal="pressed" from="MainMenu/CenterMenu/Niveaux" to="." method="_on_niveaux_pressed"]
-[connection signal="pressed" from="MainMenu/CenterMenu/Parametres" to="." method="_on_parametres_pressed"]
+[connection signal="pressed" from="MainMenu/CenterMenu/Fullscreen" to="." method="_on_fullscreen_pressed"]
 [connection signal="pressed" from="MainMenu/CenterMenu/Quitter" to="." method="_on_quitter_pressed"]

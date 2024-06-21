@@ -15,15 +15,11 @@ func explosionSpread(number : int, currentState : String):
 			var states = ['right', 'left', 'up', 'down']
 			$ExplosionTimer.start()
 			await($ExplosionTimer.timeout)
-			if onCrate : 
-				maxExplosions = number
 			for i in states :
 				newExplosion(number+1, i)
 		else : 
 			$ExplosionTimer.start()
 			await($ExplosionTimer.timeout)
-			if onCrate : 
-				maxExplosions = number
 			newExplosion(number+1, currentState)
 	
 
@@ -51,6 +47,6 @@ func _on_explosion_sprite_animation_finished() -> void:
 
 func _on_explosion_area_body_entered(body: Node2D) -> void:
 	if body.has_method("isCrate") :
-		onCrate = true
+		queue_free()
 	if body.name == "TileMap" :
 		queue_free()

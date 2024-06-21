@@ -1,5 +1,6 @@
-[gd_scene load_steps=19 format=3 uid="uid://b6dlwb1oantft"]
+[gd_scene load_steps=21 format=3 uid="uid://b6dlwb1oantft"]
 
+[ext_resource type="Script" path="res://scripts/enemy.gd" id="1_jjuib"]
 [ext_resource type="Texture2D" uid="uid://pntp0l8ifsxo" path="res://Asset/Tech Dungeon Roguelite - Asset Pack (v7)/Enemies/enemies x1.png" id="1_pad78"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_di161"]
@@ -129,12 +130,32 @@ animations = [{
 radius = 9.0
 height = 26.0
 
-[node name="BaseEnemy" type="CharacterBody2D"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_x63e7"]
+size = Vector2(20, 26)
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+[node name="BaseEnemy" type="CharacterBody2D"]
+script = ExtResource("1_jjuib")
+
+[node name="EnemySprite" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_1rnia")
 animation = &"Idle"
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+[node name="EnemyCollision" type="CollisionShape2D" parent="."]
 position = Vector2(0, 3)
 shape = SubResource("CapsuleShape2D_36afp")
+
+[node name="EnemyNavigation" type="NavigationAgent2D" parent="."]
+debug_enabled = true
+
+[node name="EnemyTimer" type="Timer" parent="."]
+wait_time = 0.5
+autostart = true
+
+[node name="EnemyDamageTaker" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="EnemyDamageTaker"]
+position = Vector2(0, 3)
+shape = SubResource("RectangleShape2D_x63e7")
+
+[connection signal="timeout" from="EnemyTimer" to="." method="_on_enemy_timer_timeout"]
+[connection signal="area_entered" from="EnemyDamageTaker" to="." method="_on_enemy_damage_taker_area_entered"]

@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://cqhpixywx35iq"]
+[gd_scene load_steps=23 format=3 uid="uid://cqhpixywx35iq"]
 
 [ext_resource type="Script" path="res://scripts/Player.gd" id="1_twju3"]
 [ext_resource type="Texture2D" uid="uid://0qojn8uefw5y" path="res://Asset/entities/player/cowbow.png" id="2_okcf3"]
@@ -143,6 +143,9 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_n2ri3"]
+size = Vector2(20, 18.7744)
+
 [node name="Player" type="CharacterBody2D"]
 z_index = 5
 script = ExtResource("1_twju3")
@@ -169,6 +172,17 @@ wait_time = 0.3
 
 [node name="BombTimer" type="Timer" parent="."]
 
+[node name="InvincibilityTimer" type="Timer" parent="."]
+wait_time = 2.0
+
+[node name="PlayerDamageTaker" type="Area2D" parent="."]
+
+[node name="PlayerDamageTakerCollision" type="CollisionShape2D" parent="PlayerDamageTaker"]
+position = Vector2(0, 0.558727)
+scale = Vector2(0.502549, 0.911745)
+shape = SubResource("RectangleShape2D_n2ri3")
+
 [connection signal="timeout" from="StepTimer" to="." method="_on_step_timer_timeout"]
 [connection signal="timeout" from="LassoTimer" to="." method="_on_lasso_timer_timeout"]
 [connection signal="timeout" from="BombTimer" to="." method="_on_bomb_timer_timeout"]
+[connection signal="area_entered" from="PlayerDamageTaker" to="." method="_on_player_damage_taker_area_entered"]

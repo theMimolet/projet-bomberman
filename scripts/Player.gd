@@ -6,6 +6,7 @@ extends CharacterBody2D
 var playStep := true
 var placedBomb := false
 var lassoing := false
+var hasTookDamage := false
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -13,6 +14,10 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
+
+	#if hasTookDamage : 
+		#$Visual/PlayerSprite.visible = true
+		#$Visual/PlayerSprite.visible = false
 
 	if !lassoing:
 		if Input.is_action_just_pressed("Bombe") and !placedBomb : 
@@ -83,3 +88,15 @@ func _on_bomb_timer_timeout() -> void:
 
 func _on_lasso_timer_timeout() -> void:
 	lassoing = false
+
+func damageTaken() : 
+	hasTookDamage = true
+	HP -= 1
+	$InvincibilityTimer.start()
+	await($InvincibilityTimer.timeout)
+	hasTookDamage = false
+	$Visual/PlayerSprite.visible = true
+
+func _on_player_damage_taker_area_entered(area: Area2D) -> void:
+	if area.name == "ExplosionArea" and !hasTookDamage : 
+		damageTaken()

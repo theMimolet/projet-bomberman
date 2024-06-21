@@ -1,7 +1,7 @@
 [gd_scene load_steps=9 format=3 uid="uid://by23g07ao0kdf"]
 
 [ext_resource type="Script" path="res://Scenes/level-gameplay.gd" id="1_245gm"]
-[ext_resource type="Script" path="res://Scenes/nextScene.gd" id="2_aioh4"]
+[ext_resource type="Script" path="res://scripts/nextScene.gd" id="2_2pnbp"]
 [ext_resource type="PackedScene" uid="uid://cqhpixywx35iq" path="res://Scenes/player.tscn" id="2_jtyyb"]
 [ext_resource type="TileSet" uid="uid://bpe61rwgnfgdm" path="res://Scenes/MainTileset.tres" id="2_vvlsb"]
 [ext_resource type="PackedScene" uid="uid://b6dlwb1oantft" path="res://Scenes/Prefab/base_enemy.tscn" id="4_o54y5"]
@@ -23,7 +23,7 @@ wait_time = 0.5
 autostart = true
 
 [node name="nextScene" type="Node2D" parent="."]
-script = ExtResource("2_aioh4")
+script = ExtResource("2_2pnbp")
 
 [node name="TileMap" type="TileMap" parent="."]
 position = Vector2(0, 3)

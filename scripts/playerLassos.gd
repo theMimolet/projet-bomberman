@@ -8,10 +8,18 @@ func _ready() -> void:
 	pass
 
 func lassoSpread(number : int, currentState : String):
+	if number == 1 or number == maxLassos : 
+		$LassoParticules.emitting = true
 	match currentState : 
+		'right': 
+			$LassoParticules.position = $LassoParticulesPosRight.position
+		'left': 
+			$LassoParticules.position = $LassoParticulesPosLeft.position
 		'up': 
+			$LassoParticules.position = $LassoParticulesPosLeft.position
 			self.rotation_degrees = 90
 		'down': 
+			$LassoParticules.position = $LassoParticulesPosRight.position
 			self.rotation_degrees = 90
 	$LassoSprite.play("default")
 	$LassoTimer.start()
@@ -49,4 +57,8 @@ func _on_explosion_sprite_animation_finished() -> void:
 
 func _on_explosion_area_body_entered(body: Node2D) -> void:
 	if body.name == "TileMap" : 
+		$LassoParticules.emitting = true
+		$LassoSprite.visible = false
+		$LassoSelfDestructTimer.start()
+		await($LassoSelfDestructTimer.timeout)
 		queue_free()
